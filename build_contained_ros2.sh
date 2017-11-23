@@ -1,5 +1,5 @@
 #!/bin/bash
-basedir=$(dirname $0)
+basedir=$(realpath $(dirname $0))
 
 docker run -i --rm \
   -v $basedir/../polly:/polly \
