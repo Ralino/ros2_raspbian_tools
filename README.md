@@ -84,19 +84,20 @@ Building ROS2 for the Raspberry Pi
 ----------------------------------
 
 We can finally crosscompile ROS2 for the Raspberry Pi!
+First, extract the generated Raspbian filesystem:
 
 ```sh
 $ mkdir -p ~/ros2_rpi/rpi-root
 $ cd ~/ros2_rpi/ros2_raspbian_tools
 $ sudo tar -C ~/ros2_rpi/rpi-root -xvf ros2-raspbian-rootfs.tar
-$ docker run -it --rm \
-    -v ~/ros2_rpi/polly:/polly \
-    -v ~/ros2_rpi/ros2_ws:/ros2_ws \
-    -v ~/ros2_rpi/ros2_raspbian_tools/build_ros2.bash:/build_ros2.bash \
-    -v ~/ros2_rpi/rpi-root:/raspbian_ros2_root \
-    -w /ros2_ws \
-    ros2-raspbian:crosscompiler \
-    bash /build_ros2.bash
+```
+
+Now start the build! If your build container is not named `ros2-raspbian:crosscompiler`,
+or you named some directories differently than in this readme, you need to change
+the script `build_contained_ros2.sh` accordingly.
+
+``` sh
+$ ./build_contained_ros2.sh
 ```
 
 The newly built ROS2 workspace can be copied to a Raspberry with scp:
