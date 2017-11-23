@@ -5,7 +5,7 @@ set -euf -o pipefail
 PYTHON_MAJOR=3
 PYTHON_MINOR=5
 
-#export POCO_ROOT="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib"
+export POCO_ROOT="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib"
 
 src/ament/ament_tools/scripts/ament.py build \
     --isolated \
@@ -20,6 +20,7 @@ src/ament/ament_tools/scripts/ament.py build \
     -DEigen3_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib/cmake/eigen3" \
     -DPoco_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include" \
     -DPoco_LIBRARY_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib" \
+    -DPoco_LIBRARIES="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib/libPocoFoundation.so" \
     -DASIO_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include" \
     -DTINYXML2_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include" \
     -DTINYXML2_LIBRARY="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib/${RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PREFIX}/libtinyxml2.so" \
