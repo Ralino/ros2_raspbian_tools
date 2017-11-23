@@ -27,7 +27,7 @@ compiling software for a huge variety of targets, including the Raspberry Pi, iO
 
 ```sh
 $ cd ~/ros2_rpi
-$ git clone https://github.com/ruslo/polly.git
+$ git clone https://github.com/Ralino/polly.git
 ```
 
 We're going to use a Docker image as the host compiler, so let's clone this repository and

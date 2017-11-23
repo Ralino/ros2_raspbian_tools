@@ -8,10 +8,10 @@ PYTHON_MINOR=5
 export POCO_ROOT="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib"
 
 src/ament/ament_tools/scripts/ament.py build \
-    --isolated \
+    --symlink-install \
     --cmake-args \
     -DCMAKE_FIND_ROOT_PATH="/ros2_ws/install_isolated" \
-    -DCMAKE_TOOLCHAIN_FILE="/polly/raspberrypi3-cxx11.cmake" \
+    -DCMAKE_TOOLCHAIN_FILE="/polly/raspberrypi3-cxx14.cmake" \
     -DPYTHON_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include/python${PYTHON_MAJOR}.${PYTHON_MINOR}m" \
     -DPYTHON_LIBRARY="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib/${RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PREFIX}/libpython${PYTHON_MAJOR}.${PYTHON_MINOR}m.so" \
     -DPYTHON_SOABI="cpython-${PYTHON_MAJOR}${PYTHON_MINOR}m-${RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PREFIX}" \
@@ -27,4 +27,4 @@ src/ament/ament_tools/scripts/ament.py build \
     -DTinyXML_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include" \
     -DTinyXML_LIBRARY="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib/${RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PREFIX}/libtinyxml.so" \
     -- \
-    --parallel $*
+    $*
