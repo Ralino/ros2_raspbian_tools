@@ -44,7 +44,7 @@ Convert Raspberry's OS (Raspbian) image to a Docker image/container
 -------------------------------------------------------------------
 
 The `convert_raspbian_docker.py` script will fetch the latest Raspbian image and convert it into a
-Docker image so it can be run on the host as a Docker container.
+Docker image so it can be run on the host as a Docker container. This script requires the `python-parted` module.
 
 ```sh
 $ cd ~/ros2_rpi/ros2_raspbian_tools
@@ -78,7 +78,7 @@ $ ./export_raspbian_image.py ros2-raspbian:lite ros2_dependencies.bash ros2-rasp
 ```
 
 The script will generate a `ros2-raspbian-rootfs.tar` file with the contents of a Raspbian
-filesystem with all the ROS2 dependencies already included.
+filesystem with all the ROS2 dependencies already included. You will need to install `qemu-arm-static` for this.
 
 Building ROS2 for the Raspberry Pi
 ----------------------------------
