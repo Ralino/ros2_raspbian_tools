@@ -18,7 +18,7 @@ RUN apt update && \
     qemu-user-static \
     software-properties-common
 RUN echo  "deb http://packages.ros.org/ros/ubuntu xenial main" | tee /etc/apt/sources.list.d/ros-latest.list
-RUN apt-key adv --keyserver ha.pool.sks-keyservers.net --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
+RUN apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 421C365BD9FF1F717815A3895523BAEEB01FA116
 RUN apt update && apt -y --no-install-recommends install python3-catkin-pkg-modules
 ENV RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PATH /usr/bin
 ENV RASPBERRYPI_CROSS_COMPILE_TOOLCHAIN_PREFIX arm-linux-gnueabihf
