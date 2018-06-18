@@ -8,6 +8,8 @@ PYTHON_MINOR=5
 #export POCO_ROOT="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/lib"
 
 src/ament/ament_tools/scripts/ament.py build \
+    --skip-packages \
+      resource_retreiver \
     --cmake-args \
     -DCMAKE_TOOLCHAIN_FILE="/polly/raspberrypi3-cxx14.cmake" \
     -DPYTHON_INCLUDE_DIR="${RASPBERRYPI_CROSS_COMPILE_SYSROOT}/usr/include/python${PYTHON_MAJOR}.${PYTHON_MINOR}m" \
